@@ -33,6 +33,10 @@ function content() {
     $("input#regex").on('input', function () {
 		searchMatches();
     });
+	
+	textArea.on("input",function(){
+		searchMatches();
+	});
 }
 
 function menu() {
