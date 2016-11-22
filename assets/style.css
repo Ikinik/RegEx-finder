@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Play|Ubuntu');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ebebeb;
+    font-family: 'Ubuntu', sans-serif;
+    color: #344f71
+}
+
+div.ender {
+    content: ".";
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    clear: both;
+}
+
+/* HEADING definition */
+
+#heading-wrapper {
+    margin-left: -770px
+}
+
+#heading {
+    font-family: 'Play', sans-serif;
+    disply: block;
+    height: 50px;
+    background-color: #b345f1
+}
+
+#heading #caption {
+    color: white;
+    width: 300px;
+    margin: 0px auto;
+}
+
+#heading #caption h1 {
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+#heading #caption h1 span {
+    font-size: 20px;
+}
+
+#center-wrapper {
+    margin-left: -220px
+}
+
+#center {
+    display: block;
+    width: 850px;
+    clear: both;
+    margin: 0px auto
+}
+
+/* SIDE MENU - section */
+
+#side-menu {
+    display: block;
+    width: 220px;
+    float: left;
+    min-height: 515px;
+    background-color: #f7f7f7
+}
+
+#side-menu .menu-sec {
+    margin: 4px 4px 15px 4px;
+}
+
+#side-menu .menu-sec:first-child {
+    margin-top: 10px
+}
+
+#side-menu .menu-sec .menu-capt{
+    font-weight: bold;
+    font-size: 18px;
+    font-variant: small-caps;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+#side-menu .menu-sec .menu-cont {
+    margin-left: 8px;
+    margin-top: 2px;
+}
+
+#center-area {
+    display: block;
+    width: 630px;
+    min-height: 500px;
+    float: right;
+    clear: both;
+}
+
+/*CENTERAREA - section */
+
+#center-area label, #center-area .label {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+#center-area #expression-area #input-box {
+    display: block;
+    width: 618px;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    background-color: white;
+}
+
+#center-area #expression-area #input-box.focus {
+    border-color: #b345f1;
+}
+
+#center-area #expression-area #input-box #before-input {
+    padding: 6px 4px 6px 8px;
+    color: #c5c5ca;
+    font-size: 16px;
+    float: left;
+}
+
+#center-area #expression-area #input-box #after-input {
+    padding: 6px 4px 6px 6px;
+    color: #c5c5ca;
+    font-size: 16px;
+}
+
+#center-area #expression-area #input-box input#regex {
+    width: 550px;
+    padding: 6px 4px 6px 4px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    float: left;
+}
+
+#center-area #expression-area #input-box input#regex:focus {
+    outline: none;
+}
+
+#center-area #content-area textarea#text:focus {
+    outline: none;
+    border-color: #b345f1;
+}
+
+#center-area .section-area {
+    padding-top: 8px;
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+#center-area .section-area span#matches-count {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #b345f1;
+}
+
+#center-area #matches-text {
+    display: block;
+    padding: 4px 4px 4px 8px;
+    min-height: 3em;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    font-size: 14px;
+    clear: both;
+}
+
+#center-area #matches-text .match {
+    display: block;
+    padding: 2px 6px 2px 6px;
+    margin: 2px 4px 2px 4px;
+    border-radius: 3px;
+    color: white;
+    float: left;
+}
+
+#center-area #content-area {
+    margin-top: 12px
+}
+
+#center-area #content-area textarea#text {
+    width: 610px;
+    min-width: 610px;
+    max-width: 610px;
+    height: 385px;
+    resize: vertical;
+    padding: 4px;
+    overflow: hidden;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+}
+
+/* SPECIFIC THINGS*/
+
+#source-button {
+    display: table;
+    margin: 6px 0px 0px 40px;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+
+#source-button #source-file, #source-button #source-link {
+    padding: 4px 10px 4px 10px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+#source-button #source-file:hover, #source-button #source-link:hover {
+    background-color: #e5e5e5;
+}
+
+#source-button #source-file {
+    float: left;
+    border-right: 1px solid #c5c5c5;
+}
+
+#source-button #source-link {
+    float: right;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.ui-dialog button.ui-dialog-titlebar-close .ui-icon-closethick {background: url('images/close.png') center center no-repeat}
+
+#link-dialog label {
+    display: block;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 5px;
+}
+
+#link-dialog input {
+    font-family: 'Ubuntu', sans-serif;
+    width: 430px;
+    padding: 4px 4px 4px 8px;
+}

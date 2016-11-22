@@ -1,0 +1,25 @@
+<!DOCYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>iframe test</title>
+    <script type="text/javascript" src="assets/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+//            $("<iframe id='frameLoader' src='http://localhost:49294/digit%C3%A1ln%C3%AD%20knihovny/index.html'></iframe>").on('load', function(){
+//                console.log("hooooovno: " + $(this).contentWindow.document.body.innerHTML);
+//                console.log($(this).contents());
+//            });
+
+            $("#testFrame").on("load", function(){
+                console.log(document.getElementById('testFrame').innerHTML);
+                //console.log(($(this).find('html').html());
+            });
+        });
+    </script>
+</head>
+<body>
+<iframe id="testFrame" src="http://www.textfiles.com/100/914bbs.txt"></iframe>
+
+</body>
+</html>

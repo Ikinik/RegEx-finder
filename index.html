@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ReGeXp finder</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/jquery-ui.css">
+  <script type="text/javascript" src="assets/jquery.js"></script>
+  <script type="text/javascript" src="assets/autogrow.js"></script>
+  <script type="text/javascript" src="assets/mresize.js"></script>
+  <script type="text/javascript" src="assets/jquery-ui.js"></script>
+  <script type="text/javascript" src="assets/script.js"></script>
+</head>
+<body>
+<div id="heading-wrapper">
+  <div id="heading">
+    <div id="caption">
+      <h1>RegEx <span>finder</span></h1>
+    </div>
+  </div>
+</div>
+<div id="center-wrapper">
+  <div id="center">
+    <div id="center-area">
+      <div id="expression-area" class="section-area">
+        <label for="regex">regulární výraz</label>
+        <div id="input-box">
+          <div id="before-input">/</div>
+          <input id="regex" type="text" spellcheck="false">
+          <div id="after-input">/gm</div>
+        </div>
+      </div>
+      <div id="matches-area" class="section-area">
+        <div class="label">výskyty <span id="matches-count">0</span></div>
+        <div id="matches-text"><div class="ender"></div></div>
+      </div>
+      <div id="content-area" class="section-area">
+        <label for="text">prohledávaný text</label>
+        <textarea id="text" cols="80" wrap="hard" spellcheck="false"></textarea>
+      </div>
+    </div>
+    <div id="side-menu">
+      <div class="menu-sec">
+        <div class="menu-capt">otevřít ze zdroje</div>
+        <div class="menu-cont">
+          <div id="source-button">
+            <div id="source-file">soubor</div>
+            <div id="source-link">url</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-sec">
+        <div class="menu-capt">funkce</div>
+        <div class="menu-cont">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
