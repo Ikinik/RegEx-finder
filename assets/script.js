@@ -138,7 +138,9 @@ function searchMatches(){
 				var color = matchesColors[Math.floor((Math.random() * (matchesColors.length - 1)) + 0)];
 				var matchDivString = "<div class='match' style='background-color: " + color + "' data-position='"+matchedEl["index"]+"'>" + matchedEl[0] + "</div> ";
 				var matchDiv = $(matchDivString).click(function(){
-					alert(matchedEl["index"]);
+					textArea.focus();
+					setSelectionRange(textArea[0], matchedEl["index"], matchedEl["index"] + matchedEl[0].length);
+					
 				});
 				matchDiv.insertBefore(matchesText.find("div.ender"));
 			});
@@ -146,6 +148,16 @@ function searchMatches(){
 	}	
 }
 
-function show(){
-	
+function setSelectionRange(input, selectionStart, selectionEnd) {
+  if (input.setSelectionRange) {
+    input.focus();
+    input.setSelectionRange(selectionStart, selectionEnd);
+  }
+  else if (input.createTextRange) {
+    var range = input.createTextRange();
+    range.collapse(true);
+    range.moveEnd('character', selectionEnd);
+    range.moveStart('character', selectionStart);
+    range.select();
+  }
 }
