@@ -27,7 +27,7 @@
         <div id="input-box">
           <div id="before-input">/</div>
           <input id="regex" type="text" spellcheck="false">
-          <div id="after-input">/gm</div>
+          <div id="after-input"></div>
         </div>
       </div>
       <div id="matches-area" class="section-area">
@@ -51,20 +51,35 @@
       </div>
       <div class="menu-sec">
         <div class="menu-capt">funkce</div>
-        <div class="menu-cont">
-           <fieldset>
-             <label for="check-g">g</label>
-             <input type="checkbox" class="check" name="check-g" id="check-g">
-             <label for="check-i">i</label>
-             <input type="checkbox" class="check" name="check-i" id="check-i">
-             <label for="check-m">m</label>
-             <input type="checkbox" class="check" name="check-m" id="check-m">
-             <label for="check-u">u</label>
-             <input type="checkbox" class="check" name="check-u" id="check-u">
-             <label for="check-y">y</label>
-             <input type="checkbox" class="chcek" name="check-y" id="check-y">
-           </fieldset>
-        </div>
+        <div class="menu-cont">           
+		  <table>
+            <tr>
+              <td title="Globální vyhledávání - Najde všechny výskyty, místo pouze prvního">			
+				 <label for="check-g">g</label>
+				 <input type="checkbox" class="check" name="check-g" id="check-g" checked>
+			  </td>
+			  <td title="Ignorovat velikost písmen"> 
+		        <label for="check-i">i</label>
+			    <input type="checkbox" class="check" name="check-i" id="check-i">
+			  </td>
+			  <td title="Víceřádkově - Oddělovače /n a /r jsou v dokumentu chápány jako konce řádků. Namísto začátku a konce pouze celého vstupního řetězce/dokumentu. Podle toho se chovají znaky v regulázním výrazu (^ a $).">
+			   <label for="check-m">m</label>
+			   <input type="checkbox" class="check" name="check-m" id="check-m" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td title="Unicode - Zachází s řetězcem jako se sekvencí unikódových znaků">
+			   <label for="check-u">u</label>
+			   <input type="checkbox" class="check" name="check-u" id="check-u">
+			  </td>
+			  <td title="Lepivý">
+				<label for="check-y">y</label>
+		  	    <input type="checkbox" class="check" name="check-y" id="check-y">
+              </td><td>
+			  </td>
+			</tr>
+		  </table>
+		</div>
       </div>
     </div>
   </div>

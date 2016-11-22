@@ -3,6 +3,8 @@
  */
 $(document).ready(function () {
     textArea = $('textarea#text');
+	regexFlags = "gm";
+	
     init();
     menu();
     content();
@@ -23,34 +25,13 @@ function init() {
     $("input#regex").focusout(function () {
         $("#input-box").removeClass("focus");
     });
-
-    $("input.chcek").remove();
+	
+	$("[title]").tooltip({show: {delay: 900}});
 }
 
 function content() {
-    var matchesText = $('#matches-text');
-    var matchesCount = $('span#matches-count');
-    var matchesColors = ['#ef2765', '#01adef', '#8cc63e', '#662e93', '#f79437', '#00b6ba', '#ef3e36', '#f9ee06',
-        '#c3b59b', '#30b66f', '#48bfe9', '#3cae4c', '#f36056', '#9a65ab', '#fbac1c', '#aac47d', '#8f8f8d', '#6490cd',
-        '#f06aa7', '#c5996c', '#a01f62', '#0f75bd', '#ed1b24', '#92c741'];
     $("input#regex").on('input', function () {
-        matchesText.find('.match').remove();
-        matchesCount.html("0");
-        var regexString = $(this).val();
-        if (regexString != "") {
-            var regex = new RegExp(regexString, 'gm');
-            var content = textArea.val();
-            var result = content.match(regex);
-            if (result != null) {
-                matchesCount.html(result.length);
-                var matcheString = "";
-                result.forEach(function (element) {
-                    var color = matchesColors[Math.floor((Math.random() * (matchesColors.length - 1)) + 0)];
-                    matcheString += "<div class='match' style='background-color: " + color + "'>" + element + "</div> ";
-                });
-                matchesText.prepend(matcheString);
-            }
-        }
+		searchMatches();
     });
 }
 
@@ -106,8 +87,65 @@ function menu() {
     $('#source-link').click(function () {
         linkDialog.dialog("open");
     });
+	
+	setFlags();
+    $("input.check").checkboxradio().change(function(){
+		setFlags();
+		searchMatches();
+	});
 }
 
 function resizeSidebar() {
     $("#side-menu").css("min-height", $("#center-area").height() - 2);
+}
+
+function setFlags(){
+	var flags = "";
+	$("input.check").each(function(){
+		if($(this).is(":checked")){
+			var name = $(this).attr("name");
+			var flag = name.substr(name.length - 1, name.length);
+			flags += flag;
+		}
+	});
+	
+	regexFlags = flags;
+	$("div#after-input").text("/" + flags);
+}
+
+function searchMatches(){
+	var matchesText = $('#matches-text');
+	var matchesCount = $('span#matches-count');
+	var matchesColors = ['#ef2765', '#01adef', '#8cc63e', '#662e93', '#f79437', '#00b6ba', '#ef3e36', '#f9ee06',
+	'#c3b59b', '#30b66f', '#48bfe9', '#3cae4c', '#f36056', '#9a65ab', '#fbac1c', '#aac47d', '#8f8f8d', '#6490cd',
+	'#f06aa7', '#c5996c', '#a01f62', '#0f75bd', '#ed1b24', '#92c741'];
+
+	matchesText.find('.match').remove();
+	matchesCount.html("0");
+	var regexString = $("input#regex").val();
+	if (regexString != "") {
+		var regex = new RegExp(regexString, regexFlags);
+		var content = textArea.val();
+		var result = content.match(regex);
+		var matches = [];
+		while((match = regex.exec(content)) != null){
+			matches.push(match);
+		}
+		
+		if(matches.length != 0){
+			matchesCount.html(matches.length);
+			matches.forEach(function(matchedEl){
+				var color = matchesColors[Math.floor((Math.random() * (matchesColors.length - 1)) + 0)];
+				var matchDivString = "<div class='match' style='background-color: " + color + "' data-position='"+matchedEl["index"]+"'>" + matchedEl[0] + "</div> ";
+				var matchDiv = $(matchDivString).click(function(){
+					alert(matchedEl["index"]);
+				});
+				matchDiv.insertBefore(matchesText.find("div.ender"));
+			});
+		}
+	}	
+}
+
+function show(){
+	
 }

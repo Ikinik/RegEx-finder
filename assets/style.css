@@ -1,5 +1,6 @@
+/*
 @import url('https://fonts.googleapis.com/css?family=Play|Ubuntu');
-
+*/
 body {
     margin: 0px;
     padding: 0px;
@@ -129,10 +130,11 @@ div.ender {
     padding: 6px 4px 6px 6px;
     color: #c5c5ca;
     font-size: 16px;
+	text-align: right;
 }
 
 #center-area #expression-area #input-box input#regex {
-    width: 550px;
+    width: 532px;
     padding: 6px 4px 6px 4px;
     border: none;
     font-size: 16px;
@@ -178,6 +180,8 @@ div.ender {
     border-radius: 3px;
     color: white;
     float: left;
+	cursor: hand;
+	cursor: pointer;
 }
 
 #center-area #content-area {
@@ -228,6 +232,12 @@ div.ender {
 }
 
 .ui-dialog button.ui-dialog-titlebar-close .ui-icon-closethick {background: url('images/close.png') center center no-repeat}
+
+.menu-cont label.ui-checkboxradio-label {padding: 4px 8px 4px 8px}
+
+.menu-cont table {width: 100%; border-spacing: 3px}
+
+.menu-cont table label.ui-checkboxradio-label {padding: 4px 0px 4px 0px; width: 100%}
 
 #link-dialog label {
     display: block;
