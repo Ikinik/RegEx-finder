@@ -32,7 +32,10 @@ function init() {
 function content() {
     $("input#regex").on('input', function () {
 		searchMatches();
+		console.log($(this).caret().start + " - " + $(this).caret().end);
     }).keydown(function(){
+		console.log($(this).caret().start + " - " + $(this).caret().end);
+	}).mousemove(function(){
 		console.log($(this).caret().start + " - " + $(this).caret().end);
 	});
 	
