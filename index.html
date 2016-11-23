@@ -6,9 +6,11 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/jquery-ui.css">
   <script type="text/javascript" src="assets/jquery.js"></script>
+  <script type="text/javascript" src="assets/jquery-ui.js"></script>
+  <script type="text/javascript" src="assets/migrate.js"></script>
   <script type="text/javascript" src="assets/autogrow.js"></script>
   <script type="text/javascript" src="assets/mresize.js"></script>
-  <script type="text/javascript" src="assets/jquery-ui.js"></script>
+  <script type="text/javascript" src="assets/jquery.caret.min.js"></script>
   <script type="text/javascript" src="assets/script.js"></script>
 </head>
 <body>
@@ -50,7 +52,7 @@
         </div>
       </div>
       <div class="menu-sec">
-        <div class="menu-capt">funkce</div>
+        <div class="menu-capt">flagy</div>
         <div class="menu-cont">           
 		  <table>
             <tr>
@@ -81,7 +83,89 @@
 		  </table>
 		</div>
       </div>
-    </div>
+	  <div class="menu-sec">
+	    <div class="menu-capt">třídy znaků</div>
+		<div class="menu-cont" id="char-classes">
+		  <table>
+		    <tr>
+			  <td>
+				<button class="ui-button" title="Tečka - vybere jakýkoliv samotný znak">.</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybere číslici, ekvivalentní [0-9]">\d</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybere jakýkoliv znak, který není číslice. Ekvivalentní k [^0-9]">\d</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybere základní alfanumerický znak. Ekvivalentní k [A-Za-z0-9_]">\w</button>
+  			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybere jakýkoliv znak, který není základní alfanumerický znak. Ekvivalentní k [^A-Za-z0-9_]">\W</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybere bílý znak. Ekvivalentní k [ \f\n\r\t\v\u00a0\u1680\u180e\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff].">\s</button>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<button class="ui-button" title="Vybere jakýkoliv nebílý znak.">\S</button>  
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vybere horizontání tabulátor.">\t</button>
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vybere býlý znak návratu vozíku na začátek řádky">\r</button>
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vybere odřádkování">\n</button>
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vybere vertikální tabulátor">\v</button>
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vybaere znak pro podání papíru">\f</button>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<button class="ui-button" title="Vybaere Backspace">[\b]</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Vybaere nulu. Nenásledovavou žádným jiným číselným znakem">\0</button>
+			  </td>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			</tr>
+		  </table>
+		</div>
+	  </div>
+      <div class="menu-sec" id="boundaries">
+	    <div class="menu-capt">ohraničující znaky</div>
+		<div class="menu-cont">
+		  <table>
+		    <tr>
+			  <td>
+			    <button class="ui-button" title="Začátek vstupu. Pokud je nastaven flag \m bere začátky řádků.">^</button>    
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Konec vstupu. Pokud je nastaven flag \m bere konce řádků.">$</button>
+			  </td>
+			  <td>
+			    <button class="ui-button" title="Hranice mezi slovy.">\b</button>    
+			  </td>
+			  <td>
+				<button class="ui-button" title="Vše co není hranice mezi slovy.">\B</button>
+			  </td>
+			  <td></td>
+			  <td></td>
+			</tr>
+		  </table>
+		</div>
+	  </div>
+	</div>
   </div>
 </div>
 </body>

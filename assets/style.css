@@ -239,6 +239,8 @@ div.ender {
 
 .menu-cont table label.ui-checkboxradio-label {padding: 4px 0px 4px 0px; width: 100%}
 
+table button.ui-button {width: 100%; margin: 0px; padding: 4px 0px 4px 0px}
+
 #link-dialog label {
     display: block;
     font-family: 'Ubuntu', sans-serif;

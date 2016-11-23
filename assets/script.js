@@ -32,7 +32,9 @@ function init() {
 function content() {
     $("input#regex").on('input', function () {
 		searchMatches();
-    });
+    }).keydown(function(){
+		console.log($(this).caret().start + " - " + $(this).caret().end);
+	});
 	
 	textArea.on("input",function(){
 		searchMatches();
@@ -96,6 +98,20 @@ function menu() {
     $("input.check").checkboxradio().change(function(){
 		setFlags();
 		searchMatches();
+	});
+	
+	$("#char-classes button").click(function(){
+		var regexInput = $("input#regex");
+		
+		if(regexInput.is(":focus")){
+			alert(regexInput.selectionStart);
+			alert("hooovno");
+		}
+		
+		
+		var regexString = regexInput.val();
+		var regexChar = $(this).text();
+		regexInput.val(regexString + regexChar);
 	});
 }
 
