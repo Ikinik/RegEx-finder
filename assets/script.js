@@ -4,7 +4,9 @@
 $(document).ready(function () {
     textArea = $('textarea#text');
 	regexFlags = "gm";
-	
+	caretStart = 0;
+    caretEnd = 0;
+
     init();
     menu();
     content();
@@ -32,12 +34,13 @@ function init() {
 function content() {
     $("input#regex").on('input', function () {
 		searchMatches();
-		console.log($(this).caret().start + " - " + $(this).caret().end);
-    }).keydown(function(){
-		console.log($(this).caret().start + " - " + $(this).caret().end);
-	}).mousemove(function(){
-		console.log($(this).caret().start + " - " + $(this).caret().end);
-	});
+        caretStart = $(this).caret().start;
+        caretEnd = $(this).caret().end;
+    }).bind("keydown mousemove bind change", function(){
+        caretStart = $(this).caret().start;
+        caretEnd = $(this).caret().end;
+        console.log(caretStart + " " + caretEnd);
+    });
 	
 	textArea.on("input",function(){
 		searchMatches();
@@ -103,18 +106,37 @@ function menu() {
 		searchMatches();
 	});
 	
-	$("#char-classes button").click(function(){
+	$(".menu-sec table button").click(function(){
 		var regexInput = $("input#regex");
-		
-		if(regexInput.is(":focus")){
-			alert(regexInput.selectionStart);
-			alert("hooovno");
-		}
-		
-		
 		var regexString = regexInput.val();
-		var regexChar = $(this).text();
-		regexInput.val(regexString + regexChar);
+        var regexChar = $(this).text();
+
+        //special behavior
+        switch(regexChar){
+            case "{n}":
+                regexChar = "{1}";
+                break;
+            case "{n,}":
+                regexChar = "{1,}";
+                break;
+            case "{n,m}":
+                regexChar = "{1,2}";
+                break;
+            case "{..}?":
+                regexChar = "*?";
+                break;
+        }
+
+        if(regexString.length >= caretStart){
+            var before = regexString.substring(0,caretStart);
+            var after = regexString.substring(caretStart, regexString.length);
+            regexString = before + regexChar + after;
+            regexInput.val(regexString);
+        }else{
+            regexInput.val(regexString + regexChar);
+        }
+
+		regexInput.val(regexString);
 	});
 }
 

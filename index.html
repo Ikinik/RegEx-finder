@@ -83,9 +83,9 @@
 		  </table>
 		</div>
       </div>
-	  <div class="menu-sec">
+	  <div class="menu-sec" id="char-classes">
 	    <div class="menu-capt">třídy znaků</div>
-		<div class="menu-cont" id="char-classes">
+		<div class="menu-cont">
 		  <table>
 		    <tr>
 			  <td>
@@ -159,12 +159,81 @@
 			  <td>
 				<button class="ui-button" title="Vše co není hranice mezi slovy.">\B</button>
 			  </td>
-			  <td></td>
-			  <td></td>
 			</tr>
 		  </table>
 		</div>
 	  </div>
+		<div class="menu-sec" id="char-sets">
+			<div class="menu-capt">sady znaků</div>
+			<div class="menu-cont">
+				<table>
+					<tr>
+						<td>
+							<button class="ui-button" title="Sada znaků, výčet znaků, které se mohou na místě vyskytovat. Naříklad xyz.">[xyz]</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Rozsah znaků. V tomto případě znaky od a až do z.">[a-c]</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Sada znaků, která se na místě nemůže vyskytovat. Například xyz">[^xyz]</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Rozsah znaků, který se na místě nemůže vyskytovat.">[^a-z]</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Nebo. Vstup může platit na výraz před rourou, nebo za rourou">|</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="menu-sec" id="quantifers">
+			<div class="menu-capt">kvantifikátory</div>
+			<div class="menu-cont">
+				<table>
+					<tr>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytovat libovolněkrát 0 - až nekonečněkrát">*</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytnout 1 - až nekonečněkrát">+</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytnout 0 - 1 krát">?</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytnout přesně n-krát">{n}</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytnout n-krát až nekonečněkrát">{n,}</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Předchozí výraz se může vyskytnout n-krát až m-krát">{n,m}</button>
+						</td>
+						<td>
+							<button class="ui-button" title="V kombinaci: x*? x+? x?? x{n}? x{n,}? x{n,m}?. Znamená že kvantifikátor není chamtivý, Vybere nejmenší vyhovující výskyt. Například: /&lt;.*?&gt;/ vybere 	&rdquo;<foo>&rdquo; z &rdquo;<foo> <bar>&rdquo;, namísto /&lt;.*?&gt;/ který vybere celý řetězec &rdquo;<foo> <bar>&rdquo;">{..}?</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="menu-sec" id="assertions">
+			<div class="menu-capt">prosazování</div>
+			<div class="menu-cont">
+				<table>
+					<tr>
+						<td>
+							<button class="ui-button" title="Vybere x pouze pokud je následováno y-em">x(?=y)</button>
+						</td>
+						<td>
+							<button class="ui-button" title="Vybere x pouze pokud není následování y-em">x(?!y)</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
   </div>
 </div>
