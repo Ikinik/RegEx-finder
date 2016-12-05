@@ -74,7 +74,20 @@ function menu() {
             "Ok": function () {
                 var url = $("#link-input").val();
                 if (url != "") {
-                    // to do load file trought php
+                    var dialog = $(this);					
+					var siteUrl = window.location.href;
+					siteUrl = siteUrl.split('/');        //break the string into an array
+					siteUrl.pop();      		         //remove its last element
+					siteUrl = siteUrl.join('/');
+				
+					$.getJSON(siteUrl + "/php/file-url.php?page=" + encodeURI(url), function(data){
+						if(data["result"]){
+							textArea.val(data["text"]);
+						}
+	
+						dialog.dialog("close");
+					});
+					
                 }
             }
         }
