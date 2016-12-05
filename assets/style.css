@@ -8,12 +8,23 @@ body {
     color: #344f71
 }
 
+
+/* HELPER OBJECTS */
+
 div.ender {
     content: ".";
     width: 1px;
     height: 1px;
     visibility: hidden;
     clear: both;
+}
+
+div#link-dialog {
+	display: none;
+}
+
+input#file-input {
+	display: none;
 }
 
 /* HEADING definition */

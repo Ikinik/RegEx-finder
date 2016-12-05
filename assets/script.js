@@ -48,9 +48,10 @@ function content() {
 }
 
 function menu() {
-    var inputFile = $("<input type='file' name='file-input'>");
-    var linkDialog = $('<div id="link-dialog" title="Otevřít z URL"><form onsubmit="return false"><label for="link-input">Vložte odkaz: </label><input type="text" placeholder="http://" name="link-input" id="link-input"></form></div>').dialog({
-        autoOpen: false,
+    //var inputFile = $("<input type='file' name='file-input'>");
+    var inputFile = $("#file-input");
+    var linkDialog = $('#link-dialog').dialog({
+		autoOpen: false,
         height: 200,
         width: 480,
         modal: true,
@@ -79,7 +80,6 @@ function menu() {
         }
     });
 
-
     $("#source-file").click(function () {
         inputFile.click();
         inputFile.change(function () {
@@ -94,10 +94,12 @@ function menu() {
                 reader.readAsText(fileURL);
             }
         });
+		return false;
     });
 
     $('#source-link').click(function () {
-        linkDialog.dialog("open");
+        linkDialog.dialog('open');
+		return false;
     });
 	
 	setFlags();
@@ -231,4 +233,15 @@ function checkRegex(testedRexEx){
 	}else{
 		return false;
 	}
+}
+
+function dialogTest(){
+	var myDialog = $('#dialogTest').dialog({
+		autoOpen: true,
+        height: 200,
+        width: 480,
+        modal: true,
+	});
+	
+	myDialog.dialog("open");
 }
