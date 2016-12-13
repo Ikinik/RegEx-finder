@@ -192,6 +192,7 @@ input#file-input {
     float: left;
 	cursor: hand;
 	cursor: pointer;
+	height: 20px;
 }
 
 #center-area #content-area {
